@@ -5,6 +5,13 @@
 
 It is recommended to get Nvidia support through [rocker](https://github.com/osrf/rocker).
 
+Set up Rocker
+
+```bash
+pip3 install git+https://github.com/osrf/rocker.git
+pip3 install git+https://github.com/sloretz/off-your-rocker
+```
+
 The following steps outline how to build the docker image and then run the rocker command to start the container.
 
 1. Build the docker image:
@@ -32,3 +39,5 @@ rocker --oyr-run-arg " --rm --privileged" --nvidia --x11 --user --home --net hos
 ```
 
 #### NOTE: --net host is required to allow the UR5e to connect with the ROS UR Driver! It won't work without this option if you are using docker!!
+
+if you did not install install nvidia them you need to remote "--nvidia" from the launch_docker.sh
