@@ -64,5 +64,21 @@ RUN apt-get install ros-melodic-ros-control ros-melodic-ros-controllers -y
 RUN apt-get update
 RUN apt-get install libmodbus-dev -y
 
+RUN echo 'deb http://realsense-hw-public.s3.amazonaws.com/Debian/apt-repo xenial main' | sudo tee /etc/apt/sources.list.d/realsense-public.list
+
+RUN apt-key adv --keyserver keys.gnupg.net --recv-key 6F3EFCDE
+
+RUN apt-get update
+
+RUN apt-get -y install librealsense2-dkms
+
+RUN apt-get -y install librealsense2-utils
+
+RUN apt-get -y install librealsense2-dev
+
+RUN apt-get -y install librealsense2-dbg
+
+RUN apt-get -y install ros-melodic-ddynamic-reconfigure
+
 # Add sourcing of catkin workspaces to .bashrc to run on startup
 RUN echo "source /opt/ros/melodic/setup.bash" >> /home/$USER/.bashrc
