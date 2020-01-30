@@ -40,4 +40,11 @@ rocker --oyr-run-arg " --rm --privileged" --nvidia --x11 --user --home --net hos
 
 #### NOTE: --net host is required to allow the UR5e to connect with the ROS UR Driver! It won't work without this option if you are using docker!!
 
-if you did not install install nvidia them you need to remote "--nvidia" from the launch_docker.sh
+#### Note: if you did not install install nvidia them you need to remote "--nvidia" from the launch_docker.sh    
+
+
+In this branch, we include the driver with realsense camera. Because we are using D435, when you are trying to launch the node for it, please run following command:
+```bash
+roslaunch realsense2_camera rs_d435_camera_with_model.launch
+```
+#### Note: because camera permission is not given in the image, you need to use chmod to modify the permission for /dev/video0,1,2,3.
