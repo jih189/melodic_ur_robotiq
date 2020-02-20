@@ -80,5 +80,9 @@ RUN apt-get -y install librealsense2-dbg
 
 RUN apt-get -y install ros-melodic-ddynamic-reconfigure
 
+RUN apt-get update
+
+RUN apt-get -y install ros-melodic-rqt ros-melodic-rqt-common-plugins ros-melodic-rqt-robot-plugins
+
 # Add sourcing of catkin workspaces to .bashrc to run on startup
 RUN echo "source /opt/ros/melodic/setup.bash" >> /home/$USER/.bashrc
