@@ -11,6 +11,7 @@ Set up Rocker
 pip3 install git+https://github.com/osrf/rocker.git
 pip3 install git+https://github.com/sloretz/off-your-rocker
 ```
+Note: If you found the rocker is not in /usr/local/bin, then you may need to copy it from .local/bin.rocker.
 
 The following steps outline how to build the docker image and then run the rocker command to start the container.
 
