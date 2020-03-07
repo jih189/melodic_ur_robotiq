@@ -86,45 +86,12 @@ RUN apt-get -y install ros-melodic-rqt ros-melodic-rqt-common-plugins ros-melodi
 
 RUN apt-get -y install libcanberra-gtk3-module
 
-# install tensorflow
-
-# RUN pip install tensorflow --user
-
 # yolo
-RUN pip3 install torch==1.4.0+cpu torchvision==0.5.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
+# RUN pip3 install torch==1.4.0+cpu torchvision==0.5.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
 
-RUN pip3 install opencv-python
-RUN pip3 install matplotlib
-RUN pip3 install tqdm
-
-# tensorflow
-RUN apt-get install wget
-RUN BAZEL_VERSION="0.13.1"
-RUN wget https://github.com/bazelbuild/bazel/releases/download/0.13.1/bazel-0.13.1-installer-linux-x86_64.sh
-RUN chmod +x bazel-0.13.1-installer-linux-x86_64.sh
-RUN apt-get install -y unzip
-RUN ./bazel-0.13.1-installer-linux-x86_64.sh
-
-RUN git clone https://github.com/tensorflow/tensorflow.git 
-WORKDIR /tensorflow
-RUN git checkout v1.8.0
-RUN sudo /tensorflow/configure
-
-
-RUN mkdir /tmp/protobuf
-RUN /tensorflow/tensorflow/contrib/makefile/download_dependencies.sh
-WORKDIR /tensorflow/tensorflow/contrib/makefile/downloads/protobuf/
-RUN sudo ./autogen.sh
-RUN sudo ./configure --prefix=/tmp/protobuf
-RUN make
-RUN make install
-
-RUN mkdir /tmp/eigen
-WORKDIR /tensorflow/tensorflow/contrib/makefile/downloads/eigen
-RUN mkdir build_dir
-WORKDIR /tensorflow/tensorflow/contrib/makefile/downloads/eigen/build_dir
-RUN sudo cmake -DCMAKE_INSTALL_PREFIX=/temp/eigen ../ 
-RUN sudo make install
+# RUN pip3 install opencv-python
+# RUN pip3 install matplotlib
+# RUN pip3 install tqdm
 
 # Add sourcing of catkin workspaces to .bashrc to run on startup
 RUN echo "source /opt/ros/melodic/setup.bash" >> /home/$USER/.bashrc
