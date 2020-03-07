@@ -84,5 +84,20 @@ RUN apt-get update
 
 RUN apt-get -y install ros-melodic-rqt ros-melodic-rqt-common-plugins ros-melodic-rqt-robot-plugins
 
+RUN apt-get -y install libcanberra-gtk3-module
+
+# install tensorflow
+
+# RUN pip install tensorflow --user
+
+# yolo
+RUN pip3 install torch==1.4.0+cpu torchvision==0.5.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
+
+RUN pip3 install opencv-python
+RUN pip3 install matplotlib
+RUN pip3 install tqdm
+
 # Add sourcing of catkin workspaces to .bashrc to run on startup
 RUN echo "source /opt/ros/melodic/setup.bash" >> /home/$USER/.bashrc
+
+EXPOSE 11311
