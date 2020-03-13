@@ -1,1 +1,1 @@
-rocker --oyr-run-arg " --rm --privileged --device=/dev/video0:/dev/video0" --x11 --user --net host --pulse --nvidia melodic-ur-robotiq:latest
+rocker --oyr-run-arg " --rm --privileged --device=/dev/ttyACM0:/dev/sensor_0" --x11 --user --net host --pulse --nvidia --home melodic-ur-robotiq:latest
